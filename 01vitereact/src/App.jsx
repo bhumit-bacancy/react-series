@@ -1,7 +1,10 @@
+import Chai from "./Chai";
 function App() {
+  const username = "bhim bhai";
   return (
     <>
-      <h1>Hello bhau with vite</h1>
+      <Chai />
+      <h1>Hello bhau with vite {username}</h1>
     </>
   );
 }

@@ -3,7 +3,11 @@ import authReducer from "./authSlice";
 import postReducer from "./postSlice";
 
 const store = configureStore({
-  reducer: { auth: authReducer, post: postReducer },
+  reducer: { 
+    auth: authReducer,
+    post: postReducer,
+  }
+  // reducer: authReducer
 });
 
 export default store;

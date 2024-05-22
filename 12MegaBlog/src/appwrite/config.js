@@ -16,6 +16,7 @@ export class Service {
   }
 
   async createPost({ title, slug, content, featuredImage, status, userId }) {
+    console.log("api create post",userId)
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -80,14 +81,13 @@ export class Service {
   }
 
   async getPosts(queries = [Query.equal('status', 'active')]) {
+    console.log("api calleddd")
     try {
-      const result = await this.databases.listDocuments(
+      return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
         conf.appwriteCollectionId,
         queries
       );
-      console.log(result)
-      return result
     } catch (error) {
       console.log("Error getPosts: ", error);
       return false

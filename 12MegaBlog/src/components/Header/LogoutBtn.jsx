@@ -2,13 +2,13 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-
+import { removePosts } from '../../store/postSlice';
 import authService from '../../appwrite/auth'
 import { logout } from '../../store/authSlice'
 
 function LogoutBtn() {
   const navigate = useNavigate();
-  const posts = useSelector((state) => state.posts);
+  const posts = useSelector((state) => state.post.posts);
 
   const dispatch = useDispatch()
 
@@ -17,6 +17,7 @@ function LogoutBtn() {
 
     authService.logout().then(() => {
       dispatch(logout())
+      dispatch(removePosts([]))
       navigate("/");
     })
   }
